@@ -53,24 +53,115 @@ Using version control it is also quite easy to collaborate on a project by forci
 Version control tools also make it easy to experiment with new ideas. You can start new branches which essentially make a copy of your current project. In this new branch, you can safely experiment with new features, and if the experiments are not conclusive, you can simply discard this branch: the original copy of your project will remain untouched. 
 :::
 
-## Git and Github
+## Git
 
-- Git is to control version on your computer (make a repository)
-- Github is an online service to host project repositories
+- Git is a tool to be used to control the version.
+- It should be installed on the computer before usage.  
 
+## Github
 
+- Is an online service to host project repositories.
+- One should have an account to be able to use it.
+- Pros:  
+  - Large community
+  - Continuous integration via Github Actions  
+- Cons:
+  - Owned by Microsoft (privacy issues)
+  - Not possible to self-host an instance of Github
+- There are alternatives: Gitlab, Bitbucket...
+
+::: {.notes}
+Github Actions is literally a computer in the cloud that you can use to run a set of actions each time you interact with the repository (or at defined moments as well). For example, it would be possible to run automated tests each time a collaborator uploads some changes to the project.
+:::
+
+## Some notes!
+
+- Do not put git repositories into cloud services like Dropbox and Onedrive:
+![](https://media.makeameme.org/created/conflicts-conflicts-everywhere-5ab1de.jpg)
+- Public repository does not mean that everyone can make changes on the files.
+
+::: {.notes}
+ The issue is that inside a project that is being tracked by Git, there is a hidden folder with many files that get used for synching the project and making sure that everything runs smoothly. If you put a Git-enabled project inside a Dropbox folder, these files will get accessed simultaneously by different people, and Dropbox will start making copies of these because of conflicts. This really messes up the project and can lead to data loss. Let Git handle the tracking and the collaborating for you. Unlike Dropbox (or similar services), Git deals with conflicts not on a per-file basis, but on a per-line basis. So if two collaborators change the same file, but different lines of this same file, there will be no conflict: Git will handle the merge on its own.
+Anyone can fork the repository (essentially making a copy of the repository to their Github account) and then suggest some changes in a so-called pull request. The maintainer and owner of the original project can then accept these edits or not.
+:::
 
 ## Installing Git
 
+- open terminal (Linux, macOS) or command prompt (Windows)
+- run
+
+```bash
+which git
+```
+
+or 
+
+```bash
+git --version
+```
+
+## Installing Git
+
+- on Linux
+
+````bash
+sudo apt-get update
+sudo apt-get install git
+```
+
+or https://git-scm.com/download/linux
+
+- on macOS:
+
+https://git-scm.com/download/mac
+
+- on Windows:
+
+https://git-scm.com/download/win
+
 ## Opening a Github account
 
-## Git superbasics
+- Open https://github.com
+
+:::{.fragment}
+![](https://media.makeameme.org/created/yeah-if-you-7tjfok.jpg)
+:::
 
 ## Git superbasics
 
-## Git superbasics
+- Create a folder called *housing*
+- Save below scripts under this folder  
+    - save_data.R: https://is.gd/7PhUjd  
+    - analysis.R: https://is.gd/qCJEbi
 
 ## Git superbasics
+
+- On terminal, go to *housing* folder by using
+
+```bash
+cd /path/to/folder/housing
+```
+or
+
+- Open the folder on file explorer  
+  - On Linux, right-click inside the folder and select "Open Terminal here" or similar
+  - On Windows, right-click inside the folder and select "Open Git Bash here" or similar
+  - On macOS, activate this option by using google search results for "open terminal at folder macOS"
+
+## Git superbasics
+
+- Use ls and check folder contents
+
+```bash
+ls
+```
+
+## Git superbasics
+
+```bash
+git init
+```
+
 
 ## Git and Github
 
