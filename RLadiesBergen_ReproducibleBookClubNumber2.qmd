@@ -1,0 +1,82 @@
+---
+title: "Version Control with Git"
+subtitle: "Reproducible Book Club #2"
+author: "Turkuler Ozgumus"
+date: "2023-11-07"
+format: 
+  revealjs:
+    theme: night
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        color: #ffffff;
+      }
+      #title-slide {
+        color: #ffffff;
+      }
+      </style>
+title-slide-attributes: 
+  data-background-image: img/branches.jpg
+---
+
+## Outline
+
+Chapter 4 of Building reproducible analytical pipelines with R
+
+- Version control
+- Git
+- Github
+- Use of Git and Github
+
+## Version control
+
+- Keep track of changes on text files
+- It is possible to see  
+  - how the file changed,
+  - who made the changes and, 
+  - when these are made.
+
+::: {.notes}
+Version control tools make it easy to keep track of the changes that were made to text files (like R scripts). Any change made to any file of a project is catalogued, making it possible to trace back how the file changed, who made the changes, and when these changes were made.
+
+:::
+
+## So what?
+
+- Easy collaboration
+- Safe backup
+- Adding/not adding new features
+
+::: {.notes}
+Using version control it is also quite easy to collaborate on a project by forcing team members to deal explicitly with the potential conflicts that might arise when the same file got changed by different people at the same time. Should your computer get lost, stolen, or explode, your projects are safely backed up on a server: this is because version control tools make use of a server which keeps track of all the changes.
+Version control tools also make it easy to experiment with new ideas. You can start new branches which essentially make a copy of your current project. In this new branch, you can safely experiment with new features, and if the experiments are not conclusive, you can simply discard this branch: the original copy of your project will remain untouched. 
+:::
+
+## Git and Github
+
+- Git is to control version on your computer (make a repository)
+- Github is an online service to host project repositories
+
+
+
+## Installing Git
+
+## Opening a Github account
+
+## Git superbasics
+
+## Git superbasics
+
+## Git superbasics
+
+## Git superbasics
+
+## Git and Github
+
+## Git and Github
+
+## Git and Github
+
+## Git to know Github
+
