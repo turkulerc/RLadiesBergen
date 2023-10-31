@@ -6,6 +6,7 @@ date: "2023-11-07"
 format: 
   revealjs:
     theme: night
+    code-line-numbers: false
 include-in-header:
   - text: |
       <style>
@@ -87,7 +88,7 @@ Anyone can fork the repository (essentially making a copy of the repository to t
 
 ## Installing Git
 
-- open terminal (Linux, macOS) or command prompt (Windows)
+- open terminal ( ![](img/linux.png){width="3%"} , ![](img/white_mac.png){width="3%"} ) or command prompt (![](img/Windows_logo_-_2021.svg.png){width="3%"})
 - run
 
 ```bash
@@ -102,20 +103,20 @@ git --version
 
 ## Installing Git
 
-- on Linux
+- ![](img/linux.png){width="12%"}
 
-````bash
+```bash
 sudo apt-get update
 sudo apt-get install git
 ```
 
 or https://git-scm.com/download/linux
 
-- on macOS:
+- ![](img/white_mac.png){width="12%"}
 
 https://git-scm.com/download/mac
 
-- on Windows:
+- ![](img/Windows_logo_-_2021.svg.png){width="2%"}
 
 https://git-scm.com/download/win
 
@@ -144,17 +145,19 @@ cd /path/to/folder/housing
 or
 
 - Open the folder on file explorer  
-  - On Linux, right-click inside the folder and select "Open Terminal here" or similar
-  - On Windows, right-click inside the folder and select "Open Git Bash here" or similar
-  - On macOS, activate this option by using google search results for "open terminal at folder macOS"
+  - ![](img/linux.png){width="3%"}, right-click inside the folder and select "Open Terminal here" or similar
+  - ![](img/Windows_logo_-_2021.svg.png){width="3%"}, right-click inside the folder and select "Open Git Bash here" or similar
+  - ![](img/white_mac.png){width="3%"}, activate this option by using google search results for "open terminal at folder macOS"
 
 ## Git superbasics
 
-- Use ls and check folder contents
+- Use ls om terminal/Git bash and check folder contents
 
 ```bash
 ls
 ```
+
+- We will use terminal/Git bash for the rest
 
 ## Git superbasics
 
@@ -162,12 +165,236 @@ ls
 git init
 ```
 
+![](img/output.png)
+
+## Git superbasics
+
+```bash
+git status
+```
+
+![](img/output2.png)
+
+## Git superbasics
+
+```bash
+git add
+```
+
+:::{.fragment}
+*git add* needs file(s) to be specified
+:::
+
+:::{.fragment}
+```bash
+git add .
+```
+:::
+
+:::{.fragment}
+```bash
+git status
+```
+:::
+
+:::{.notes}
+Nice! Our two files are being tracked now, so we can commit the changes. Committing means that we are happy with our work, and we can snapshot it. 
+:::
+
+## Git superbasics
+
+```bash
+git commit -m "Project start"
+```
+
+:::{.fragment}
+```bash
+git status
+```
+:::
+
+:::{.notes}
+We are now ready to commit our files. Each commit must have a commit message,
+:::
+
+## Git superbasics
+
+Make a change from
+
+![](img/script1.png)
+
+to
+
+![](img/script2.png)
+
+## Git superbasics
+
+```bash
+git status
+```
+
+:::{.fragment}
+```bash
+git add .
+```
+:::
+
+:::{.fragment}
+```bash
+git commit -m "Added a comment to analysis.R"
+```
+:::
+
+:::{.notes}
+Try to keep commit messages as short and as explicit as possible. This is not always easy, but it really pays off to strive for short, clear messages. Also, ideally, you would want to keep commits as small as possible, ideally one commit per change. For example, if you’re adding and amending comments in scripts, once you’re done with that make this a commit. Then, maybe clean up some code. That’s another, separate commit. It is generally not a good idea to code all day and then only push one single big fat commit at the end of the day, but that is what happens very often…
+:::
+
+## Git superbasics
+
+*how to recover a deleted file before committing the change*
+
+```bash
+rm analysis.R
+```
+
+:::{.fragment}
+```bash
+git status
+```
+:::
+
+:::{.fragment}
+```bash
+git stash
+```
+:::
+
+:::{.fragment}
+```bash
+ls
+```
+:::
+
+:::{.fragment}
+```bash
+git stash drop
+```
+:::
+
+:::{.notes}
+Yep, analysis.R is gone. And deleting on the console usually means that the file is gone forever. Well technically no, there are still ways to recover deleted files using certain tools, but since we were using Git we can use it to recover the files! Because we did not commit the deletion of the file, we can simple tell Git to ignore our changes. A simple way to achieve this is to stash the changes, and then drop (or delete) the stash
+So the deletion was stashed away, (so in case we want it back we could get it back with git stash pop) and our project was rolled back to the previous commit. Simply take a look at the files
+There it is! You can get rid of the stash with git stash drop
+:::
+
+## Git superbasics
+
+*how to recover a deleted file after committing the change*
+
+```bash
+rm analysis.R
+```
+
+:::{.fragment}
+```bash
+git status
+```
+:::
+
+:::{.fragment}
+```bash
+git add .
+git commit -m "Removed analysis.R"
+git status
+```
+:::
+
+:::{.notes}
+git stash will not help here. For this, we need to know to which commit we want to roll back. Each commit not only has a message, but also an unique identifier that you can access with git log:
+The first one from the top is the last commit we’ve made. We would like to go back to the one with the message “Added a comment to analysis.R”. See the very long string of characters after “commit”? That’s the commit’s unique identifier, called hash. You need to copy it (or only like the first 10 or so characters, that’s enough as well). By the way, depending on your terminal and operating system, git log may open less to view the log. less is a program that makes it easy to view long documents. Quit it by simply pressing q on your keyboard.
+:::
+
+## Git superbasics
+
+*how to recover a deleted file after committing the change*
+
+```bash
+git log
+```
+
+![](img/gitlog1.png)
+
+:::{.fragment}
+```bash
+git revert ab43b4b1069cd98768..HEAD
+```
+:::
+
+## Git superbasics
+
+*how to recover a deleted file after committing the change*
+
+```bash
+git log
+```
+
+![](img/gitlog2.png)
+
+## Git superbasics
+
+*how to recover a deleted file after committing the change*
+
+```bash
+git revert 8e51867dc5
+```
+
+:::{.notes}
+Using a range of commits in git revert reverts all the commits from the starting commit (not included) to the last commit. In this example, because only the commit starting with 8e51867dc5 was included in that range, only this commit was reverted. 
+:::
 
 ## Git and Github
 
-## Git and Github
+**Push** -> uploading the changes we did on our local repository to GitHub
 
 ## Git and Github
+
+- Create a new repository with following:  
+  - Repository name: housing
+  - Public
+  - No README file
+  
+## Git and Github
+
+![](img/git_new_repo.png)
+
+## Git and Github
+
+![](img/git_new_repo_2.png)
+
+## Git and Github
+
+![](img/git_repo_start.png)
+
+## Git and Github
+
+![](img/git_repo_start_ssh.png)
+
+## Git and Github
+
+```bash
+git remote add origin git@github.com:turkulerc/housing.git
+git branch -M main # if you would like to rename the branch from "master" to "main"
+git push -u origin main
+```
+
+
+:::{.notes}
+For now, let’s read the instructions. Since we have already started working, we need to follow the instructions titled “…or push an existing repository from the command line”. Let’s review these commands. This is what Github suggests we run:
+What’s really important is the first command and last command. The first command adds a remote (referred to as origin) that points to our repository. If you’re following along, you should copy the link from your repository here. It would look exactly the same, but the user name rap4all would be replaced by your Github username. So now, every time I push, my changes will get uploaded to Github. The second line renames the branch from “master” to “main”. You are of course free to do so. I don’t like changing the defaults from Git, so I will keep using the name “master”. The last command pushes our changes to the “main” branch (but we need to change “main” to “master”).
+:::
+
+
+
 
 ## Git to know Github
 
