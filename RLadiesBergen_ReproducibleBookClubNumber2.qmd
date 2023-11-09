@@ -21,7 +21,7 @@ title-slide-attributes:
   data-background-image: img/branches.jpg
 ---
 
-## Outline
+### Outline
 
 Chapter 4 of Building reproducible analytical pipelines with R
 
@@ -30,7 +30,9 @@ Chapter 4 of Building reproducible analytical pipelines with R
 - Github
 - Use of Git and Github
 
-## Version control
+---
+
+### Version control
 
 - Keep track of changes on text files
 - It is possible to see  
@@ -38,28 +40,24 @@ Chapter 4 of Building reproducible analytical pipelines with R
   - who made the changes and, 
   - when these are made.
 
-::: {.notes}
-Version control tools make it easy to keep track of the changes that were made to text files (like R scripts). Any change made to any file of a project is catalogued, making it possible to trace back how the file changed, who made the changes, and when these changes were made.
+---
 
-:::
-
-## So what?
+### So what?
 
 - Easy collaboration
 - Safe backup
 - Adding/not adding new features
 
-::: {.notes}
-Using version control it is also quite easy to collaborate on a project by forcing team members to deal explicitly with the potential conflicts that might arise when the same file got changed by different people at the same time. Should your computer get lost, stolen, or explode, your projects are safely backed up on a server: this is because version control tools make use of a server which keeps track of all the changes.
-Version control tools also make it easy to experiment with new ideas. You can start new branches which essentially make a copy of your current project. In this new branch, you can safely experiment with new features, and if the experiments are not conclusive, you can simply discard this branch: the original copy of your project will remain untouched. 
-:::
+---
 
-## Git
+### Git
 
 - Git is a tool to be used to control the version.
 - It should be installed on the computer before usage.  
 
-## Github
+---
+
+### Github
 
 - Is an online service to host project repositories.
 - One should have an account to be able to use it.
@@ -71,22 +69,17 @@ Version control tools also make it easy to experiment with new ideas. You can st
   - Not possible to self-host an instance of Github
 - There are alternatives: Gitlab, Bitbucket...
 
-::: {.notes}
-Github Actions is literally a computer in the cloud that you can use to run a set of actions each time you interact with the repository (or at defined moments as well). For example, it would be possible to run automated tests each time a collaborator uploads some changes to the project.
-:::
+---
 
-## Some notes!
+### Some notes!
 
 - Do not put git repositories into cloud services like Dropbox and Onedrive:
 ![](https://media.makeameme.org/created/conflicts-conflicts-everywhere-5ab1de.jpg)
 - Public repository does not mean that everyone can make changes on the files.
 
-::: {.notes}
- The issue is that inside a project that is being tracked by Git, there is a hidden folder with many files that get used for synching the project and making sure that everything runs smoothly. If you put a Git-enabled project inside a Dropbox folder, these files will get accessed simultaneously by different people, and Dropbox will start making copies of these because of conflicts. This really messes up the project and can lead to data loss. Let Git handle the tracking and the collaborating for you. Unlike Dropbox (or similar services), Git deals with conflicts not on a per-file basis, but on a per-line basis. So if two collaborators change the same file, but different lines of this same file, there will be no conflict: Git will handle the merge on its own.
-Anyone can fork the repository (essentially making a copy of the repository to their Github account) and then suggest some changes in a so-called pull request. The maintainer and owner of the original project can then accept these edits or not.
-:::
+---
 
-## Installing Git
+### Installing Git
 
 - open terminal ( ![](img/linux.png){width="3%"} , ![](img/white_mac.png){width="3%"} ) or command prompt (![](img/Windows_logo_-_2021.svg.png){width="3%"})
 - run
@@ -101,7 +94,9 @@ or
 git --version
 ```
 
-## Installing Git
+---
+
+### Installing Git
 
 - ![](img/linux.png){width="12%"}
 
@@ -120,7 +115,9 @@ https://git-scm.com/download/mac
 
 https://git-scm.com/download/win
 
-## Opening a Github account
+---
+
+### Opening a Github account
 
 - Open https://github.com
 
@@ -128,14 +125,18 @@ https://git-scm.com/download/win
 ![](https://media.makeameme.org/created/yeah-if-you-7tjfok.jpg)
 :::
 
-## Git superbasics
+---
+
+### Git superbasics
 
 - Create a folder called *housing*
 - Save below scripts under this folder  
     - save_data.R: https://is.gd/7PhUjd  
     - analysis.R: https://is.gd/qCJEbi
 
-## Git superbasics
+---
+
+### Git superbasics
 
 - On terminal, go to *housing* folder by using
 
@@ -149,7 +150,9 @@ or
   - ![](img/Windows_logo_-_2021.svg.png){width="3%"}, right-click inside the folder and select "Open Git Bash here" or similar
   - ![](img/white_mac.png){width="3%"}, activate this option by using google search results for "open terminal at folder macOS"
 
-## Git superbasics
+---
+
+### Git superbasics
 
 - Use ls om terminal/Git bash and check folder contents
 
@@ -159,7 +162,9 @@ ls
 
 - We will use terminal/Git bash for the rest
 
-## Git superbasics
+---
+
+### Git superbasics
 
 ```bash
 git init
@@ -167,7 +172,9 @@ git init
 
 ![](img/output.png)
 
-## Git superbasics
+---
+
+### Git superbasics
 
 ```bash
 git status
@@ -175,7 +182,9 @@ git status
 
 ![](img/output2.png)
 
-## Git superbasics
+---
+
+### Git superbasics
 
 ```bash
 git add
@@ -197,11 +206,9 @@ git status
 ```
 :::
 
-:::{.notes}
-Nice! Our two files are being tracked now, so we can commit the changes. Committing means that we are happy with our work, and we can snapshot it. 
-:::
+---
 
-## Git superbasics
+### Git superbasics
 
 ```bash
 git commit -m "Project start"
@@ -213,11 +220,9 @@ git status
 ```
 :::
 
-:::{.notes}
-We are now ready to commit our files. Each commit must have a commit message,
-:::
+---
 
-## Git superbasics
+### Git superbasics
 
 Make a change from
 
@@ -227,7 +232,9 @@ to
 
 ![](img/script2.png)
 
-## Git superbasics
+---
+
+### Git superbasics
 
 ```bash
 git status
@@ -245,11 +252,9 @@ git commit -m "Added a comment to analysis.R"
 ```
 :::
 
-:::{.notes}
-Try to keep commit messages as short and as explicit as possible. This is not always easy, but it really pays off to strive for short, clear messages. Also, ideally, you would want to keep commits as small as possible, ideally one commit per change. For example, if you’re adding and amending comments in scripts, once you’re done with that make this a commit. Then, maybe clean up some code. That’s another, separate commit. It is generally not a good idea to code all day and then only push one single big fat commit at the end of the day, but that is what happens very often…
-:::
+---
 
-## Git superbasics
+### Git superbasics
 
 *how to recover a deleted file before committing the change*
 
@@ -281,13 +286,9 @@ git stash drop
 ```
 :::
 
-:::{.notes}
-Yep, analysis.R is gone. And deleting on the console usually means that the file is gone forever. Well technically no, there are still ways to recover deleted files using certain tools, but since we were using Git we can use it to recover the files! Because we did not commit the deletion of the file, we can simple tell Git to ignore our changes. A simple way to achieve this is to stash the changes, and then drop (or delete) the stash
-So the deletion was stashed away, (so in case we want it back we could get it back with git stash pop) and our project was rolled back to the previous commit. Simply take a look at the files
-There it is! You can get rid of the stash with git stash drop
-:::
+---
 
-## Git superbasics
+### Git superbasics
 
 *how to recover a deleted file after committing the change*
 
@@ -309,12 +310,9 @@ git status
 ```
 :::
 
-:::{.notes}
-git stash will not help here. For this, we need to know to which commit we want to roll back. Each commit not only has a message, but also an unique identifier that you can access with git log:
-The first one from the top is the last commit we’ve made. We would like to go back to the one with the message “Added a comment to analysis.R”. See the very long string of characters after “commit”? That’s the commit’s unique identifier, called hash. You need to copy it (or only like the first 10 or so characters, that’s enough as well). By the way, depending on your terminal and operating system, git log may open less to view the log. less is a program that makes it easy to view long documents. Quit it by simply pressing q on your keyboard.
-:::
+---
 
-## Git superbasics
+### Git superbasics
 
 *how to recover a deleted file after committing the change*
 
@@ -330,7 +328,9 @@ git revert ab43b4b1069cd98768..HEAD
 ```
 :::
 
-## Git superbasics
+---
+
+### Git superbasics
 
 *how to recover a deleted file after committing the change*
 
@@ -340,7 +340,9 @@ git log
 
 ![](img/gitlog2.png)
 
-## Git superbasics
+---
+
+### Git superbasics
 
 *how to recover a deleted file after committing the change*
 
@@ -348,53 +350,174 @@ git log
 git revert 8e51867dc5
 ```
 
-:::{.notes}
-Using a range of commits in git revert reverts all the commits from the starting commit (not included) to the last commit. In this example, because only the commit starting with 8e51867dc5 was included in that range, only this commit was reverted. 
-:::
+---
 
-## Git and Github
+### Git and Github
 
 **Push** -> uploading the changes we did on our local repository to GitHub
 
-## Git and Github
+---
+
+### Git and Github
 
 - Create a new repository with following:  
   - Repository name: housing
   - Public
   - No README file
-  
-## Git and Github
+
+---
+
+### Git and Github
 
 ![](img/git_new_repo.png)
 
-## Git and Github
+---
+
+### Git and Github
 
 ![](img/git_new_repo_2.png)
 
-## Git and Github
+---
+
+### Git and Github
 
 ![](img/git_repo_start.png)
 
-## Git and Github
+---
+
+### Git and Github
 
 ![](img/git_repo_start_ssh.png)
 
-## Git and Github
+---
+
+### Git and Github
 
 ```bash
 git remote add origin git@github.com:turkulerc/housing.git
-git branch -M main # if you would like to rename the branch from "master" to "main"
+# if you would like to rename the branch from "master" to "main"
+git branch -M main 
 git push -u origin main
 ```
 
-
-:::{.notes}
-For now, let’s read the instructions. Since we have already started working, we need to follow the instructions titled “…or push an existing repository from the command line”. Let’s review these commands. This is what Github suggests we run:
-What’s really important is the first command and last command. The first command adds a remote (referred to as origin) that points to our repository. If you’re following along, you should copy the link from your repository here. It would look exactly the same, but the user name rap4all would be replaced by your Github username. So now, every time I push, my changes will get uploaded to Github. The second line renames the branch from “master” to “main”. You are of course free to do so. I don’t like changing the defaults from Git, so I will keep using the name “master”. The last command pushes our changes to the “main” branch (but we need to change “main” to “master”).
+:::{.fragment}
+![](img/error.jpg)
 :::
 
+---
+
+### Git and Github
+
+:::{.fragment}
+- Generate a public/private RSA key pair  
+:::
+
+:::{.fragment}
+```bash
+ssh-keygen
+```
+:::
+
+:::{.fragment}
+![](img/sshkey1.png)
+
+- Leave this empty and press enter
+
+:::
+
+---
+
+### Git and Github
+
+:::{.fragment}
+![](img/sshkey2.png)
+
+- Leave this empty, too
+
+:::
+
+:::{.fragment}
+![](img/sshkey3.png)
+- Confirm empty passphase by pressing enter again!
+:::
+
+---
+
+### Git and Github
+
+![](img/sshkey4.png)
 
 
+---
 
-## Git to know Github
+### Git and Github
 
+We need to copy the contents of the id_rsa.pub file to Github 
+
+- go to [https://github.com](https://github.com)
+- go to your profile settings
+- select *SSH and GPG keys*  
+- select *New SSH key*
+- Name this key and paste the contents of id_rsa.pub in the text box and click on “add SSH key”
+
+
+---
+
+### Git and Github
+
+![](img/github_add_ssh.png)
+
+---
+
+### Git and Github
+
+Back to the terminal/Git bash
+
+```bash
+git push -u origin master
+```
+
+:::{.fragment}
+![](img/git_push_success.png)
+:::
+
+:::{.fragment}
+![](img/git_push_success2.png)
+:::
+
+---
+
+### Getting to know Github
+
+[https://github.com](https://github.com)
+
+
+---
+
+### Getting to know Github
+
+![](img/github_new_issue2.png)
+
+
+---
+
+### Minimal, reproducible example (MRE)
+
+- The code needs to be self-contained 
+- Required packages to run the code should be listed --> sessionInfo()
+- Provide code to create any object that the code snippet requires
+
+:::{.fragment}
+  
+- {reprex}
+:::
+
+---
+
+### Some additional resources
+
+-  https://happygitwithr.com/
+-  https://ohshitgit.com/
+
+
+# THANKS! {background-image="img/bw_branches.jpg"}
